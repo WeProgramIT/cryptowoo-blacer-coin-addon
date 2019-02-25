@@ -41,15 +41,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 			return 'Blacer Coin';
 		}
 
-		/** Get the currency name
-		 *
-		 * @return string
-		 */
-		private function get_currency_short_name() : string {
-			return 'blcr';
-		}
-
-		/** Get the currency name
+		/** Get the currency protocol name
 		 *
 		 * @return string
 		 */
@@ -57,7 +49,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 			return 'blacercoin';
 		}
 
-		/** Get the currency name
+		/** Get the currency code
 		 *
 		 * @return string
 		 */
@@ -237,6 +229,14 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 		 */
 		private function get_plugin_name() : string {
 			return "CryptoWoo {$this->get_currency_name()} Addon";
+		}
+
+		/** Get the currency short name (currency code lower cased)
+		 *
+		 * @return string
+		 */
+		private function get_currency_short_name() : string {
+			return strtolower( $this->get_currency_code() );
 		}
 
 		/**
