@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: CryptoWoo Blacer Coin Add-on
+ * Plugin Name: Blacer Coin CryptoWoo Add-on
  * Plugin URI: https://github.com/WeProgramIT/cryptowoo-blacer-coin-addon
  * Description: Accept Blacer Coin payments in WooCommerce. Requires CryptoWoo main plugin.
  * Version: 1.0

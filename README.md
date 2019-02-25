@@ -1,4 +1,4 @@
-# CryptoWoo Blacer Coin Add-on
+# Blacer Coin CryptoWoo Add-on
 Accept payments in Blacer Coin in WooCommerce with CryptoWoo.
 
 ## Requirements
