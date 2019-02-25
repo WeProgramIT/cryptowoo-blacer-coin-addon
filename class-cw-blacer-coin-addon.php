@@ -120,14 +120,14 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 		/**
 		 * Display CryptoWoo not installed notice
 		 */
-		private function cw_not_installed_notice() {
+		public function cw_not_installed_notice() {
 			$this->addon_not_installed_notice( 'CryptoWoo' );
 		}
 
 		/**
 		 * Display CryptoWoo inactive notice
 		 */
-		private function cw_inactive_notice() {
+		public function cw_inactive_notice() {
 			$this->addon_inactive_notice( 'CryptoWoo' );
 		}
 
