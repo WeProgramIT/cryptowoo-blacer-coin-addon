@@ -609,7 +609,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 			if ( ! empty( $redux_field[ $this->get_processing_api_id() ] && 'disabled' !== $redux_field[ $this->get_processing_api_id() ] ) ) {
 				$options[ $this->get_mpk_id() ] = 'custom';
 				update_option( 'cryptowoo_payments', $options );
-            }
+			}
 		}
 
 		/**
@@ -844,7 +844,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 				return $result->error;
 			}
 
-			// Do not include vin inputs (outgouing transactions) ( however, the merchant should not do address reuse! ).
+			// Get details about transactions.
 			foreach ( $result->last_txs as $transaction ) {
 				// Get data for an address from bock explorer api.
 				$txid     = $transaction->addresses;
@@ -1230,7 +1230,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 				'title'             => sprintf( __( '%s Processing API', 'cryptowoo' ), $this->get_currency_name() ),
 				'subtitle'          => sprintf( __( 'Choose the API provider you want to use to look up %s payments.', 'cryptowoo' ), $this->get_currency_name() ),
 				'options'           => array(
-					'explorer.blacercoin.com' => 'explorer.blacercoin.com (1 confirm only)',
+					'explorer.blacercoin.com' => 'explorer.blacercoin.com',
 					'custom'                  => 'Custom (insight)',
 					'disabled'                => 'Disabled',
 				),
