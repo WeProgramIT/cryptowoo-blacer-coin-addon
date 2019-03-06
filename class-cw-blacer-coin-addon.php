@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/WeProgramIT/cryptowoo-blacer-coin-addon
  * GitHub Plugin URI: WeProgramIT/cryptowoo-blacer-coin-addon
  * Description: Accept Blacer Coin payments in WooCommerce. Requires CryptoWoo main plugin.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: We Program IT | legal company name: OS IT Programming AS | Company org nr: NO 921 074 077
  * Author URI: https://weprogram.it
  * License: GPLv2
@@ -1435,7 +1435,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
              * Start add wallets-other section to wallet settings if it does not exist
              */
 
-			if ( false === Redux::getSection( 'cryptowoo_payments' )) {
+			if ( false === Redux::getSection( 'cryptowoo_payments', 'wallets-other' ) ) {
 				$new_sections = array();
 			    $current_sections = Redux::$sections['cryptowoo_payments'];
 				if ( isset( $current_sections['wallets-shapeshift']) ) {
