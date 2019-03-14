@@ -1049,7 +1049,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 		 * @return array
 		 */
 		public function force_update_exchange_rates( $results ) {
-			$results[ $this->get_currency_code() ] = CW_ExchangeRates::update_altcoin_fiat_rates( $this->get_currency_code(), false, true );
+			$results[ $this->get_currency_code() ] = CW_ExchangeRates::processing()->update_coin_rates( $this->get_currency_code(), false, true );
 
 			return $results;
 		}
@@ -1062,7 +1062,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 		 * @return array
 		 */
 		public function cron_update_exchange_data( $data, $options ) {
-			$blacercoin = CW_ExchangeRates::update_altcoin_fiat_rates( $this->get_currency_code(), $options );
+			$blacercoin = CW_ExchangeRates::processing()->update_coin_rates( $this->get_currency_code(), $options );
 
 			// Maybe log exchange rate updates.
 			if ( (bool) $options['logging']['rates'] ) {
