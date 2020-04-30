@@ -63,7 +63,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 		 * @return array
 		 */
 		private function get_exchanges_list() : array {
-			return array( 'CryptoBridge', 'CoinExchange' );
+			return array( 'CoinGecko', 'CryptoBridge', 'CoinExchange' );
 		}
 
 		/** Get the default number of decimals
