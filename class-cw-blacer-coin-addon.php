@@ -5,8 +5,8 @@
  * GitHub Plugin URI: WeProgramIT/cryptowoo-blacer-coin-addon
  * Description: Accept Blacer Coin payments in WooCommerce. Requires CryptoWoo main plugin.
  * Version: 1.0.2
- * Author: We Program IT | legal company name: OS IT Programming AS | Company org nr: NO 921 074 077
- * Author URI: https://weprogram.it
+ * Author: CryptoWoo AS
+ * Author URI: https://cryptowoo.com
  * License: GPLv2
  * Text Domain: cryptowoo-blacer-addon
  * Domain Path: /lang
