@@ -193,8 +193,8 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 			// HD wallet management.
 			add_filter( 'index_key_ids', array( $this, 'index_key_ids' ), 10, 1 );
 			add_filter( 'mpk_key_ids', array( $this, 'mpk_key_ids' ), 10, 1 );
-			add_filter( 'get_mpk_data_mpk_key', array( $this, 'get_mpk_data_mpk_key' ), 10, 3 );
-			add_filter( 'get_mpk_data_network', array( $this, 'get_mpk_data_network' ), 10, 3 );
+			add_filter( 'get_mpk_data_mpk_key', array( $this, 'get_mpk_data_mpk_key' ), 10, 2 );
+			add_filter( 'get_mpk_data_network', array( $this, 'get_mpk_data_network' ), 10, 2 );
 			add_filter( 'cw_discovery_notice', array( $this, 'add_currency_to_array' ), 10, 1 );
 
 			// Currency params.
@@ -584,7 +584,7 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 				}
 
 				$limit_transient = get_transient( 'cryptowoo_limit_rates' );
-				$processing      = CW_OrderProcessing::get_tx_api_config( $this->get_currency_code(), $limit_transient, 1, get_option( 'cryptowoo_payments' ) );
+				$processing      = CW_Block_Explorer_Processing::get_tx_api_config( $this->get_currency_code(), $limit_transient, 1 );
 				$tx_result       = $this->processing_api_get_txs( $address, $processing->tx_update_api, $this->processing_api_get_block_height( $processing->tx_update_api ) );
 
 				if ( $tx_result instanceof stdClass && ! empty( $tx_result->transactions ) ) {
@@ -1020,12 +1020,11 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 		/** Override mpk_key
 		 *
 		 * @param string $mpk_key Master public key options id.
-		 * @param string $currency Currency code.
-		 * @param array  $options CryptoWoo options.
+		 * @param string $currency Currency code.\
 		 *
 		 * @return string
 		 */
-		public function get_mpk_data_mpk_key( $mpk_key, $currency, $options ) {
+		public function get_mpk_data_mpk_key( $mpk_key, $currency ) {
 			if ( $currency === $this->get_currency_code() ) {
 				$mpk_key = $this->get_mpk_id();
 			}
@@ -1038,12 +1037,11 @@ if ( ! class_exists( CW_Blacer_Coin_Addon::class ) ) {
 		 *
 		 * @param stdClass $mpk_data Master public key data.
 		 * @param string   $currency Currency code.
-		 * @param array    $options CryptoWoo options.
 		 *
 		 * @return object
 		 * @throws Exception BitWasp exception.
 		 */
-		public function get_mpk_data_network( $mpk_data, $currency, $options ) {
+		public function get_mpk_data_network( $mpk_data, $currency ) {
 			if ( $currency === $this->get_currency_code() ) {
 				require_once 'bitwasp/class-blcr.php';
 				require_once 'bitwasp/class-blcr-network-factory.php';
